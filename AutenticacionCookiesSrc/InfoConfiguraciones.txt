@@ -1,0 +1,20 @@
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins#create-a-google-api-console-project-and-client-id
+https://localhost:44300/signin-google
+Client_Id:893340720053-mu3fihlubgpi5ad6fdbih2dtu2sbfaom.apps.googleusercontent.com
+Client_Secret:C4yE0tvK3QsAzLHm0P9mihs2
+
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/facebook-logins#create-the-app-in-facebook
+https://localhost:44300/signin-facebook
+App_Id: 2855936137964511
+App_Secret: 51bd55c31174fd36818e85c1de936cb5
+
+
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins#create-the-app-in-microsoft-developer-portal
+https://localhost:44300/signin-microsoft
+Client_Id: ee3f3bbe-dffd-41b3-949a-344cec6d81f7
+Client_Secret: X.3F~5zsEea6GZuc7r_6zXBhKiOXi4ne.~
+
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/twitter-logins#create-the-app-in-twitter
+https://localhost:44300/signin-twitter
+ConsumerKey: N2pjMZ1juyBITXbkAFLw1iAFt
+ConsumerSecret: YnEWRyZ4q8JW81lUG8JqO2cdJGmhGhKu6f15qqHigtiK6daiwG
