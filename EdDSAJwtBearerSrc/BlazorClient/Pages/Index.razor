@@ -1,0 +1,78 @@
+﻿@page "/"
+
+<div class="container">
+    <div class="card-body">
+        <div class="form-group">
+            <label>Email:</label>
+            <input class="form-control" placeholder="Email"
+                   @bind="UserCredentials.Email" />
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" placeholder="Password"
+                   @bind="UserCredentials.Password" autocomplete="off" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary"
+                    @onclick='async () => {
+                                  (InformationMessage, Token) = await GetTokenAsync(UserCredentials);
+                                  if (Token != null)
+                                  {
+                                      FullName = $"{GetClaimValue(Token, "firstName")} {GetClaimValue(Token, "lastName")}";
+                                      Roles = GetRoles(Token);
+                                  }
+                              }'>
+                Login
+            </button>
+            <button class="btn btn-primary"
+                    @onclick='async () => {
+                                  InformationMessage = await GetDataAsync($"{ResourceWebApi}getdata");
+                              }'>
+                Get Data
+            </button>
+            <button class="btn btn-primary"
+                    @onclick='async () => {
+                                  InformationMessage = await GetDataAsync($"{ResourceWebApi}getadmindata", Token);
+                              }'>
+                Get Admin Data
+            </button>
+            <button class="btn btn-primary"
+                    @onclick='async () => {
+                                  InformationMessage = await GetDataAsync($"{ResourceWebApi}getaccountantdata", Token);
+                              }'>
+                Get Accountant Data
+            </button>
+            <button class="btn btn-primary"
+                    @onclick='async () => {
+                                  InformationMessage = await GetDataAsync($"{ResourceWebApi}getsellerdata", Token);
+                              }'>
+                Get Seller Data
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        @if (FullName != null)
+        {
+            <div class="form-group">
+                <div>User:</div>
+                <div>@FullName</div>
+                <div>
+                    (@String.Join(", ", Roles))
+                </div>
+            </div>
+        }
+        @if (Token != null)
+        {
+            <div class="form-group">
+                Token
+                <textarea class="form-control" 
+                          rows="3" readonly>
+                    @Token
+                </textarea>
+            </div>
+        }
+        <div class="form-group">
+            @InformationMessage
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+﻿@model RCLSharedComponents.ViewModels.UserCredentials
+@{ 
+    ViewData["Title"] = "Login";
+}
+<div class="container">
+    <h1>Login</h1>
+    @if (Model.ShowExternalLogin)
+    {
+        <p style="font-size:1.25rem; font-weight:300">
+            Chose how to login
+        </p>
+    }
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h2>Local Account</h2>
+            </div>
+            <div class="card-body">
+                <form asp-route="login" id="loginform">
+                    <input type="hidden" asp-for="ReturnUrl" />
+                    <input type="hidden" asp-for="ShowExternalLogin" />
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input class="form-control" placeholder="Email" asp-for="Email" autofocus />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input class="form-control" placeholder="Password" asp-for="Password" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" asp-for="IsPersistent" />
+                        <label asp-for="IsPersistent"></label>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" name="button" value="login">
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    @if (Model.ShowExternalLogin)
+    {
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>External Account</h2>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary" name="button"
+                            value="Google" form="loginform">
+                        Google
+                    </button>
+                    <button class="btn btn-primary" name="button"
+                            value="Facebook" form="loginform">
+                        Facebook
+                    </button>
+                    <button class="btn btn-primary" name="button"
+                            value="Microsoft" form="loginform">
+                        Microsoft
+                    </button>
+                    <button class="btn btn-primary" name="button"
+                            value="Twitter" form="loginform">
+                        Twitter
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</div>
